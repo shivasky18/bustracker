@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(
+          to right,
+          #f0f0f0,
+          #dddddd,
+          #cccccc,
+          #bbbbbb,
+          #aaaaaa
+        );
+        color: #333333;
+        line-height: 1.6;
+      }
+      h1 {
+        font-size: 3rem;
+        margin: 0;
+        text-align: center;
+        flex-grow: 1;
+      }
+      header {
+        background-color: #404040;
+        color: #ffffff;
+        padding: 10px 0;
+        text-align: center;
+        display: flex;
+        align-items: center;
+      }
+
+      #container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #ffffff;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+
+      #search-bar {
+        scale: 1.1;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      #bus-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+
+      .bus-box {
+        border: 1px solid #dddddd;
+        padding: 10px;
+        margin: 9px;
+        width: 190px;
+        box-sizing: border-box;
+        background: linear-gradient(to bottom, #f5f5f5, #f0f0f0);
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .bus-box:hover {
+        transform: scale(1.05);
+      }
+
+      input[type="text"] {
+        padding: 10px;
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+        width: 70%;
+        box-sizing: border-box;
+        color: black;
+        background-color: whitesmoke;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #333333;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        font-size: 1em;
+        margin-left: 10px;
+      }
+
+      button:hover {
+        background-color: #222222;
+      }
+
+      #attract-container {
+        margin-top: 30px;
+        text-align: center;
+        color: #ffffff;
+      }
+
+      #attract-icon {
+        font-size: 3em;
+        margin-bottom: 20px;
+      }
+
+      .bus-buttons {
+        display: none; 
+      }
+
+      .bus-box.active .bus-buttons {
+        display: flex; 
+        justify-content: space-around;
+        margin-top: 10px;
+      }
+
+      .bus-buttons button {
+        padding: 10px 15px;
+        background-color: #333333;
+        color: #ffffff; 
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .bus-buttons button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+      }
+      img {
+        height: 4rem;
+        margin: 20px;
+        scale: 1.2;
+      }
+    </style>
+    <title>Bus Search</title>
+  </head>
+  <body>
+    <header>
+      <img src="./assets/logo.png" alt="logo" />
+      <h1>Bus Search</h1>
+    </header>
+
+    <div id="container">
+      <div id="search-bar">
+        <input type="text" id="bus-search" placeholder="Search for a bus..." />
+        <button onclick="searchBuses()">Search</button>
+      </div>
+
+      <div id="bus-container">
+      </div>
+    </div>
+
+    <div id="attract-container">
+      <div id="attract-icon">🚍</div>
+      <h4>
+        Discover various buses along with their details
+        here
+      </h4>
+    </div>
+
+    <script>
+      async function fetchBusesFromServer() {
+        try {
+          const response = await fetch("/api/buses");
+          if (!response.ok) {
+            throw new Error("Failed to fetch data");
+          }
+          const buses = await response.json();
+          displayBuses(buses);
+        } catch (error) {
+          console.error(error);
+
+        }
+      }
+      fetchBusesFromServer(); 
+
+      function displayBuses(filteredBuses) {
+        const busContainer = document.getElementById("bus-container");
+        busContainer.innerHTML = ""; 
+
+        filteredBuses.forEach((bus) => {
+          const l = bus.route.length;
+          const busBox = document.createElement("div");
+          busBox.classList.add("bus-box");
+          busBox.innerHTML = `
+        <h3>${bus.name}</h3>
+        <p>Route: ${bus.route.join(",").split(",")[bus.route.length - 1]}</p>
+        <p>Capacity: ${bus.capacity}</p>
+        <div class="bus-buttons">
+          <button class="live-location-btn" onclick="showLiveLocation('${
+            bus.liveLocation
+          }')">Live Location</button>
+          <button class="details-btn" onclick="showDetails('${bus.name}', '${
+            bus.route.join(",").split(",")[bus.route.length - 1]
+          }', '${bus.route.join(",")}', ${bus.capacity})">Details</button>
+          </div>
+      `;
+          busContainer.appendChild(busBox);
+
+          busBox.addEventListener("click", () => {
+            const allBusBoxes = document.querySelectorAll(".bus-box");
+            allBusBoxes.forEach((otherBusBox) => {
+              if (otherBusBox !== busBox) {
+                otherBusBox.style.display = "none";
+              }
+            });
+
+            busBox.classList.toggle("active");
+          });
+        });
+      }
+
+      function showLiveLocation(location) {
+        window.open(location, '_blank');
+            }
+
+      function showDetails(busName, route, dropLocations, capacity) {
+        alert(
+          `Details for ${busName}:\nRoute: ${route}\nDrop Locations: ${dropLocations}\nCapacity: ${capacity}`
+        );
+      }
+
+      function searchBuses() {
+        const searchInput = document.getElementById("bus-search");
+        const searchTerm = searchInput.value.toLowerCase();
+
+        const allBuses = Array.from(document.querySelectorAll(".bus-box"));
+        const filteredBuses = allBuses.filter((busBox) => {
+          const busName = busBox.querySelector("h3").textContent.toLowerCase();
+          const busRoute = busBox
+            .querySelector("p:nth-child(2)")
+            .textContent.toLowerCase();
+          return busName.includes(searchTerm) || busRoute.includes(searchTerm) ;
+        });
+
+        allBuses.forEach((busBox) => {
+          if (filteredBuses.includes(busBox)) {
+            busBox.style.display = "block";
+          } else {
+            busBox.style.display = "none";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

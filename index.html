@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bus Tracking System</title>
+    <style>
+      h1 {
+        margin-bottom: 0;
+        font-size: 4rem;
+        margin-bottom: 5px;
+      }
+      body {
+        background: linear-gradient(
+          to right,
+          #f0f0f0,
+          #dddddd,
+          #cccccc,
+          #bbbbbb,
+          #aaaaaa
+        );
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0%;
+        margin: 0%;
+      }
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        height: 90vh;
+        width: 90vw;
+      }
+      .info {
+        display: flex;
+        flex-direction: column;
+        max-width: 50%;
+        min-width: 500px;
+        height: 80%;
+      }
+      .left {
+        background-color: black;
+        color: white;
+      }
+      .left:hover {
+        background-color: #1c1c1c;
+        transform: scale(1.05);
+        transition: 50ms ease-out;
+      }
+
+      .left > img {
+        filter: invert(1);
+        position: relative;
+        left: -15px;
+        top: 3px;
+        transform: scale(1.5);
+      }
+      .btns {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+      button {
+        text-align: center;
+        background-color: white;
+        font-size: 1.5rem;
+        border: 0;
+        margin: 2px 40px;
+        padding: 2px 5px;
+        border-radius: 5px;
+        height: 50px;
+        width: 400px;
+        box-shadow: 0 0 20px -3px #545454;
+      }
+      .photo > img {
+        height: 100%;
+        width: 100%;
+      }
+      .photo {
+        position: relative;
+        top: -50px;
+        height: 500px;
+        width: 400px;
+      }
+      .photo img {
+        object-fit: contain;
+      }
+      @media (max-width: 888px) {
+        .container {
+          height: 90vh;
+        }
+        .container {
+          flex-direction: column;
+        }
+        .photo {
+          position: relative;
+          scale: 0.9;
+          margin-top: 100px;
+          order: -1;
+        }
+        .photo > img {
+          min-width: 200px;
+          max-width: 400px;
+        }
+        h1,
+        p {
+          display: none;
+        }
+        .info {
+          align-items: center;
+          min-width: 40%;
+          max-width: 95%;
+        }
+        .btns {
+          width: 300px;
+        }
+        button {
+          margin: 30px 0;
+          scale: 1.1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="info">
+        <h1>Bus tracking system</h1>
+        <p>
+          A user-friendly website designed for effortless bus tracking. Discover
+          the precise locations of your preferred buses, with complete detailed
+          route information and every designated drop-off point. Whether you're
+          planning your commute or ensuring timely pickups, our platform
+          provides a comprehensive overview of each bus's journey. Effortlessly
+          navigate through drop-off and pick-up locations, empowering you with
+          the knowledge of where and when to board or alight. Simplifying your
+          travel experience, our intuitive interface ensures you stay informed
+          about the routes and stops relevant to your journey. Experience the
+          convenience of accessing all the necessary details at your fingertips,
+          making your bus travel efficient and stress-free. Welcome to a
+          hassle-free way of staying connected with the whereabouts of your
+          buses for a smoother commuting experience.What are you waiting for, go
+          ahead.....
+        </p>
+        <div class="btns">
+          <button onclick="redirectToPage('./Search.html')" class="left">
+            <img src="./assets/bus.svg" alt="" /> Search For Your Bus
+          </button>
+        </div>
+      </div>
+      <div class="photo">
+        <img src="./assets/logo.png" alt="Cbit bus logo" />
+      </div>
+    </div>
+    <script>
+      function redirectToPage(site) {
+        window.location.href = site;
+      }
+    </script>
+  </body>
+</html>

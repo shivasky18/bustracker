@@ -1,0 +1,156 @@
+[
+  {
+    "name": "Krishna Anirudh",
+    "rollNumber": "123456878",
+    "email": "krishna.anirudh@example.com",
+    "password": "password123",
+    "attendance": {
+      "presentCount": 80,
+      "absentCount": 20
+    },
+    "absenceLog": [
+      {"date": "2024-05-01", "subjects": ["PQT", "ES"]},
+      {"date": "2024-05-03", "subjects": ["DCCST"]},
+      {"date": "2024-05-05", "subjects": ["DBMS", "DCCST", "ES"]}
+    ]
+  },
+  {
+    "name": "Ravi Kumar",
+    "rollNumber": "123456879",
+    "email": "ravi.kumar@example.com",
+    "password": "password123",
+    "attendance": {
+      "presentCount": 75,
+      "absentCount": 25
+    },
+    "absenceLog": [
+      {"date": "2024-05-02", "subjects": ["DCCST", "PQT"]},
+      {"date": "2024-05-04", "subjects": ["DBMS"]},
+      {"date": "2024-05-06", "subjects": ["DBMS", "DCCST"]}
+    ]
+  },
+  {
+    "name": "Anjali Sharma",
+    "rollNumber": "123456880",
+    "email": "anjali.sharma@example.com",
+    "password": "password123",
+    "attendance": {
+      "presentCount": 85,
+      "absentCount": 15
+    },
+    "absenceLog": [
+      {"date": "2024-05-03", "subjects": ["DBMS", "DAA"]},
+      {"date": "2024-05-05", "subjects": ["DCCST"]},
+      {"date": "2024-05-07", "subjects": ["DAA"]},
+      {"date": "2024-05-09", "subjects": ["DBMS", "PQT"]},
+      {"date": "2024-05-11", "subjects": ["DAA", "DCCST"]},
+      {"date": "2024-05-13", "subjects": ["DAA", "PQT"]},
+      {"date": "2024-05-15", "subjects": ["PQT"]},
+      {"date": "2024-05-17", "subjects": ["DBMS", "DAA"]},
+      {"date": "2024-05-19", "subjects": ["DBMS", "DCCST"]},
+      {"date": "2024-05-21", "subjects": ["PQT", "ES"]},
+      {"date": "2024-05-23", "subjects": ["DBMS", "PQT"]},
+      {"date": "2024-05-25", "subjects": ["DBMS", "DAA"]},
+      {"date": "2024-05-27", "subjects": ["DCCST", "ES"]},
+      {"date": "2024-05-29", "subjects": ["DAA", "PQT"]}
+    ]
+  },
+  {
+    "name": "Mohan Das",
+    "rollNumber": "123456881",
+    "email": "mohan.das@example.com",
+    "password": "password123",
+    "attendance": {
+      "presentCount": 90,
+      "absentCount": 10
+    },
+    "absenceLog": [
+      {"date": "2024-05-01", "subjects": ["DCCST", "PQT"]},
+      {"date": "2024-05-06", "subjects": ["DBMS", "PQT"]}
+    ]
+  },
+  {
+    "name": "Priya Singh",
+    "rollNumber": "123456882",
+    "email": "priya.singh@example.com",
+    "password": "password123",
+    "attendance": {
+      "presentCount": 70,
+      "absentCount": 30
+    },
+    "absenceLog": [
+      {"date": "2024-05-02", "subjects": ["ES", "DCCST"]},
+      {"date": "2024-05-07", "subjects": ["DBMS"]}
+    ]
+  },
+  {
+    "name": "Rahul Verma",
+    "rollNumber": "123456883",
+    "email": "rahul.verma@example.com",
+    "password": "password123",
+    "attendance": {
+      "presentCount": 60,
+      "absentCount": 40
+    },
+    "absenceLog": [
+      {"date": "2024-05-04", "subjects": ["DBMS"]},
+      {"date": "2024-05-08", "subjects": ["PQT", "ES"]}
+    ]
+  },
+  {
+    "name": "Neha Patel",
+    "rollNumber": "123456884",
+    "email": "neha.patel@example.com",
+    "password": "password123",
+    "attendance": {
+      "presentCount": 82,
+      "absentCount": 18
+    },
+    "absenceLog": [
+      {"date": "2024-05-02", "subjects": ["DAA", "PQT"]},
+      {"date": "2024-05-06", "subjects": ["DBMS", "DCCST"]}
+    ]
+  },
+  {
+    "name": "Amit Gupta",
+    "rollNumber": "123456885",
+    "email": "amit.gupta@example.com",
+    "password": "password123",
+    "attendance": {
+      "presentCount": 78,
+      "absentCount": 22
+    },
+    "absenceLog": [
+      {"date": "2024-05-01", "subjects": ["ES"]},
+      {"date": "2024-05-07", "subjects": ["DAA", "DCCST"]}
+    ]
+  },
+  {
+    "name": "Sunita Rai",
+    "rollNumber": "123456886",
+    "email": "sunita.rai@example.com",
+    "password": "password123",
+    "attendance": {
+      "presentCount": 88,
+      "absentCount": 12
+    },
+    "absenceLog": [
+      {"date": "2024-05-03", "subjects": ["PQT", "DAA"]},
+      {"date": "2024-05-05", "subjects": ["DCCST"]}
+    ]
+  },
+  {
+    "name": "Vikram Chawla",
+    "rollNumber": "123456887",
+    "email": "vikram.chawla@example.com",
+    "password": "password123",
+    "attendance": {
+      "presentCount": 65,
+      "absentCount": 35
+    },
+    "absenceLog": [
+      {"date": "2024-05-04", "subjects": ["ES", "DAA"]},
+      {"date": "2024-05-08", "subjects": ["DBMS"]}
+    ]
+  }
+]
